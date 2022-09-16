@@ -10,6 +10,11 @@ function sConsole(event) {
   // console.log(password.value);
   // console.log(dob.value);
   // console.log(accept.value);
+  if (!validateAge(dob.value)) {
+    alert("your age must be between 18 and 55");
+    return false;
+  }
+
   const table_body = document.getElementById("table_body");
   const row = table_body.insertRow();
   const Name = row.insertCell(0);
@@ -27,4 +32,21 @@ function sConsole(event) {
   const Accept = row.insertCell(4);
   const acceptText = document.createTextNode(accept.value);
   Accept.appendChild(acceptText);
+}
+
+function validateAge(birthday) {
+  const givenBday = new Date(birthday);
+  const currentDate = new Date();
+  const age = diff_years(currentDate, givenBday);
+  if (age >= 18 && age <= 55) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function diff_years(dt2, dt1) {
+  var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= 60 * 60 * 24;
+  return Math.abs(Math.round(diff / 365.25));
 }

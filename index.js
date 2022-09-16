@@ -109,7 +109,7 @@ function render() {
                   <th>Email</th>
                   <th>Password</th>
                   <th>Dob</th>
-                  <th>Accepted terms</th>
+                  <th>Accepted terms?</th>
 
               </tr>
           </thead>
